@@ -1,25 +1,21 @@
-import logo from './logo.svg';
+import React from 'react';
+import { HashRouter, Route, Routes } from 'react-router-dom';
+import GameProvider from './context/GameProvider';
+import PlayingGame from './pages/PlayingGame';
+import SetUpGame from './pages/SetUpGame';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<GameProvider>
+			<HashRouter>
+				<Routes>
+					<Route path='/' element={<SetUpGame />} />
+					<Route path='/playing' element={<PlayingGame />} />
+				</Routes>
+			</HashRouter>
+		</GameProvider>
+	);
 }
 
 export default App;
