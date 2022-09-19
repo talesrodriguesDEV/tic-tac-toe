@@ -13,7 +13,7 @@ export default function SetUpGame() {
 	useEffect(() => setMultiPlayer(false), []);
 
 	return (
-		<div>
+		<div className='h-screen flex flex-col items-center justify-center bg-black! text-white!'>
 			<h1>Let&#039;s play Tic-Tac-Toe</h1>
 			<button
 				onClick={() => {
