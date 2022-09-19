@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import GameContext from './GameContext';
 import PropTypes from 'prop-types';
 
@@ -7,6 +7,10 @@ export default function GameProvider({children}) {
 	const [player1, setPlayer1] = useState('');
 	const [player2, setPlayer2] = useState('');
   
+	useEffect(() => {
+		setMultiPlayer(JSON.parse(localStorage.getItem('multiplayer')));
+	}, []);
+
 	const objectValue = {
 		multiPlayer,
 		setMultiPlayer,
