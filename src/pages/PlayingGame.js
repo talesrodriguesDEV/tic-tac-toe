@@ -25,7 +25,7 @@ export default function PlayingGame() {
 		if (gameHasBegan && !isGameOver()) XO === 'X' ? setXO('O') : setXO('X');
 		else if (draw) setGameResult('It\'s a draw!');
 		else setGameResult(`${player1Playing ? player2 : player1} won!`);
-		if (isGameOver()) player1Playing ? setPoints2(points2 + 1) : setPoints1(points1 + 1);
+		if (isGameOver() && !draw) player1Playing ? setPoints2(points2 + 1) : setPoints1(points1 + 1);
 		if (!multiPlayer && !player1Playing && !isGameOver()) autoPlay();
 	}, [player1Playing]);
 
